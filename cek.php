@@ -1,10 +1,4 @@
 <?php
-ob_start();
-session_start();
-if(isset($_SESSION['login'])){
-    header('location:tamu.php');
-}
-
 include "koneksi.php";
 ?>
 <!doctype html>
@@ -104,63 +98,49 @@ include "koneksi.php";
                                 <div class="popup_box ">
                                     <div class="popup_inner">
                                         <div class="form_heading text-center">
-                                            <h3>Login</h3>
-                                            <p>isi kolom dibawah</p>
+                                            <img src="img/banner/flowers.png" alt="" style="margin-top: -20px;margin-bottom: 20px">
+
+                                            <?php
+                                                $sql=mysqli_query($konek, "SELECT * FROM tamu WHERE id_tamu='$_POST[id_tamu]'");
+                                                $d=mysqli_fetch_array($sql);
+
+                                                if(mysqli_num_rows($sql) < 1){
+                                                    ?>
+                                            <h3>Tamu tidak terdaftar</h3>
+                                            <br>
+                                            <h1><button class="boxed_btn3">masukkan tamu</button></h1>
                                         </div>
-                                        <?php 
-                                            if($_SERVER['REQUEST_METHOD']=='POST'){
-                                                $user   = $_POST['username'];
-                                                $pass   = $_POST['password'];
-                                                $p      = md5($pass);
-                                                if($user=='' || $pass==''){
-                                                    ?>
-                                                    <div class="alert alert-warning alert-dismissible" role="alert">
-                                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                      <?php
-                                                      echo "<strong>Error!</strong> Form Belum Lengkap!!";
-                                                      ?>
-                                                    </div>
-                                                    <?php
-                                                }else{
-                                                    include "koneksi.php";
-                                                    $sqlLogin = mysqli_query($konek, "SELECT * FROM admin WHERE username='$user' AND password='$p'");
-                                                    $jml=mysqli_num_rows($sqlLogin);
-                                                    $d=mysqli_fetch_array($sqlLogin);
-                                                    if($jml > 0){
-                                                        session_start();
-                                                        $_SESSION['login']      = TRUE;
-                                                        $_SESSION['id']         = $d['idadmin'];
-                                                        $_SESSION['username']   = $d['username'];
-                                                        $_SESSION['namalengkap']= $d['namalengkap'];
-                                                        
-                                                        header('Location:./tamu.php');
-                                                    }else{
-                                                    ?>
-                                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                          <?php
-                                                          echo "<strong>Error!</strong> Username dan Password anda Salah!!!";
-                                                          ?>
-                                                        </div>
-                                                    <?php
-                                                    }
-                                                    
-                                                }
-                                            }
+                                            <?php
+                                            }else{
                                             ?>
+                                            <h3>Terimakasih<br>telah hadir</h3>
+                                            <a href="" class="genric-btn primary-border e-large" style="height: 50px"><h3><?php echo $d['nama']; ?></h3></a>
+                                            <br>
+                                            <br>
+                                            <h4><?php echo $d['alamat']; ?></h4>
+                                        </div>
+                                        <br>
                                         <form method="post" action="" role="form">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <input type="text" name="username" placeholder="Username">
+                                                    <select class="form-select wide" id="default-select" class="">
+                                                        <option data-display="jumlah">jumlah</option>
+                                                        <option value="1">1 Guest</option>
+                                                        <option value="2">2 Guest</option>
+                                                        <option value="3">3 Guest</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-xl-12">
-                                                    <input type="password" name="password" placeholder="Password">
+                                                    <textarea placeholder="Keterangan"></textarea>
                                                 </div>
                                                 <div class="col-xl-12">
-                                                    <!-- <input type="submit" class="boxed_btn3" value="-" /> --><button  type="submit"  class="boxed_btn3">></button>
+                                                    <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
+                                                    <button  type="submit"  class="boxed_btn3">submit</button>
                                                 </div>
                                             </div>
                                         </form>
+
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -171,37 +151,7 @@ include "koneksi.php";
         </div>
     </div>
     <!-- / attend_area -->
-    <!-- accommodation_area  -->
-    <div class="accommodation_area">
-        <div class="container">
-                <div class="row">
-                        <div class="col-xl-8 offset-xl-2">
-                            <div class="section_title text-center">
-                                <h3>Accommodation.  For.  Guest</h3>
-                                <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here content here, making it look like readable English. Many desktop publishing packages and web page editors now use.</p>
-                            </div>
-                        </div>
-                    </div>
-            <div class="row no-gutters">
-                <div class="col-xl-12 col-lg-12">
-                    <div class="accommondation_image">
-                        <img src="img/Accommodation/1.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6">
-                    <div class="accommondation_image">
-                        <img src="img/Accommodation/2.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6">
-                    <div class="accommondation_image">
-                        <img src="img/Accommodation/3.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/ accommodation_area  -->
+    
    <!-- footer_start -->
    <footer class="footer">
     <div class="footer_top">

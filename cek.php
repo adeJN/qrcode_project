@@ -123,8 +123,7 @@ include "koneksi.php";
                                         <form method="post" action="" role="form">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <select class="form-select wide" id="default-select" class="">
-                                                        <option data-display="jumlah">jumlah</option>
+                                                    <select class="form-select wide"  id="default-select" class="">
                                                         <option value="1">1 Guest</option>
                                                         <option value="2">2 Guest</option>
                                                         <option value="3">3 Guest</option>

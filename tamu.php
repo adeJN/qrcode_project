@@ -34,6 +34,10 @@ include "koneksi.php";
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
@@ -100,20 +104,34 @@ include "koneksi.php";
                     </div>
                 </div>
             </div>
+
+            <?php
+                $view = isset($_GET['view']) ? $_GET['view'] : null;
+                switch($view){
+                default:
+            ?>
             <div class="row">
                 <div class="col-xl-12">
-                    
                     <div class="panel-body">
-                        <a class="btn btn-primary" style="margin-bottom: 10px" href="data_tamu.php?view=tambah">Tambah Data</a>
-                        <table class="table table-bordered table-striped">
+                        <center>
+                        <a class="boxed_btn3" style="margin-bottom: 10px" href="tamu.php?view=tambah"><i class="fa fa-plus"></i> Tambah Data</a>
+                        <a class="boxed_btn3" style="margin-bottom: 10px" href="cetak_qr.php" target="_blank"><i class="fa fa-print"></i> Cetak QR-Code</a>
+                        <a class="boxed_btn3" style="margin-bottom: 10px" href=""><i class="fa fa-download"></i> Download Laporan</a>
+                        </center>
+                        <br>
+                        <table id="tabel-data" class="table table-bordered table-striped">
+                            <thead>
                             <tr>
                                 <th>No</th>
                                 <th>ID Tamu</th>
                                 <th>Nama Tamu</th>
                                 <th>Alamat</th>
+                                <th>*</th>
                                 <th>Datang</th>
                                 <th>Aksi</th>
                             </tr>
+                            </thead>
+                            <tbody>
                             <?php
                             $sql=mysqli_query($konek, "SELECT * FROM tamu ORDER BY id_tamu ASC");
                             $no=1;
@@ -123,20 +141,145 @@ include "koneksi.php";
                                     <td>$d[id_tamu]</td>
                                     <td>$d[nama]</td>
                                     <td>$d[alamat]</td>
+                                    <td>$d[posisi]</td>
                                     <td>$d[datang]</td>
                                     <td width='180px' align='center'>
-                                        <a class='btn btn-danger btn-sm' href='buatQRCode.php?id=$d[id_tamu]&nomor=$d[nama]'>Buat Kode QR</a>
-                                        <a class='btn btn-success btn-sm' href='cetak_QR.php?id=$d[id_tamu]' target='_blank'>Cetak</a>
+                                        <a href='tamu.php?view=edit&id=$d[id_tamu]'><i class='fa fa-cog'></i></a>
+                                        <a href='aksi_tamu.php?act=delete&id=$d[id_tamu]' id='hapus'><i class='fa fa-trash'></i></a>
                                     </td>
                                 </tr>";
                                 $no++;
                             }
                             ?>
+                            </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
+            <?php
+                break;
+                case "tambah":
+
+            ?>
+            <div class="attending_area" style="margin-top: -130px">
+            <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+                    <div class="main_attending_area">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="popup_box ">
+                                    <div class="popup_inner">
+                                        <div class="form_heading text-center">
+                                            <h3>Tambah data</h3>
+                                            <p>isi kolom dibawah</p>
+                                        </div>
+                                        <form method="post" action="aksi_tamu.php?act=insert" role="form">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="nama" placeholder="Nama">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="alamat" placeholder="Alamat">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <select class="form-select wide" name="posisi" id="default-select" class="">
+                                                        <option value="reg">Reguler</option>
+                                                        <option value="vip">VIP</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
+                                                    <button  type="submit"  class="boxed_btn3">tambah</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <br>
+                                    <center><a href="tamu.php"><< Kembali</a></center>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <?php
+                break;
+                case "edit":            
+            ?>
+
+            <div class="attending_area" style="margin-top: -130px">
+            <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+                    <div class="main_attending_area">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="popup_box ">
+                                    <div class="popup_inner">
+                                        <div class="form_heading text-center">
+                                            <h3>Edit data</h3>
+                                            <p>edit kolom dibawah</p>
+                                        </div>
+                                        <?php 
+                                            include "koneksi.php";
+                                            $id_tamu=$_GET['id'];
+                                            $data = mysqli_query($konek,"select * from tamu where id_tamu='$id_tamu'");
+                                            while($d = mysqli_fetch_array($data)){
+
+                                        ?>
+                                        <form method="post" action="aksi_tamu.php?act=update" role="form">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="nama" value="<?php echo $d['nama'] ?>">
+                                                    <input type="hidden" name="id" value="<?php echo $d['id_tamu'] ?>">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="alamat" value="<?php echo $d['alamat'] ?>">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <select class="form-select wide" name="posisi" id="default-select" class="">
+                                                        <?php 
+                                                            if($d['posisi']=='reg'){
+                                                                echo"
+                                                                <option value='reg' selected>Reguler</option>
+                                                                <option value='vip'>VIP</option>
+                                                                ";
+                                                            }else if($d['posisi']=='vip'){
+                                                                echo"
+                                                                <option value='reg' >Reguler</option>
+                                                                <option value='vip' selected>VIP</option>
+                                                                ";
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
+                                                    <button  type="submit"  class="boxed_btn3">tambah</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <?php } ?>
+                                        <br>
+                                    <center><a href="tamu.php"><< Kembali</a></center>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <?php
+                break;
+            }
+            ?>
         </div>
     </div>
     <!--/ our_love-story -->
@@ -177,8 +320,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <!-- JS here -->
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
@@ -197,12 +338,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/plugins.js"></script>
 
-    <!--contact js-->
-    <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
+    <!-- datatable -->
+    <!-- <script src="jstable/jquery.dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="jstable/jquery.dataTables.min.css">
+    <script src="jstable/jquery.dataTables.min.js"></script> -->
 
     <script src="js/main.js"></script>
         <script>
@@ -216,7 +355,23 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 });
             });
         </script>
+        <script>
+            $(function(){
+                $('a#hapus').click(function(){
+                    if(confirm('Yakin hapus ?')) {
+                        return true;
+                    }
 
+                    return false;
+                });
+            });
+        </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#tabel-data').DataTable();
+        });
+    </script>
 
 </body>
 

@@ -45,7 +45,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="../index.php">home</a></li>
-                                        <li><a class="active" href="Scan.php">Scan QR</a></li>
+                                        <li><a class="active" href="index.php">Scan QR</a></li>
                                         <li><a href="../login.php">Guest</a></li>
                                         <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">

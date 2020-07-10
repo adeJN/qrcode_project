@@ -10,8 +10,11 @@ include "koneksi.php";
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Cetak</title>
 	<link rel="icon" href="img/ico.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">
 		body{
 			font-family: Arial;
@@ -22,50 +25,37 @@ include "koneksi.php";
 				display: none;
 			}
 		}
-
-		table{
-			border-collapse: collapse;
-		}
-		.box{
-			margin-bottom: 5px;
-		    width: 110px;
-		    height: 110px;
-		}
-		.box img{
-			margin-left: auto;
-			margin-right: auto;
-		    width: 90%;
-		}
-		img,p{	
-		    position: relative;
-		}
-		.bawahKanan{
-			margin: 0;padding: 0;
-		    bottom: 10px;	
-		    text-align: center;
-		    font-size: 10px;	 
-		}
 	</style>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+	
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<link rel="stylesheet" href="css/cetak/style.css">
 </head>
 <body>
-	<table border="1">
-		<tr>
-		<?php
-			$sql=mysqli_query($konek, "SELECT * FROM tamu ORDER BY id_tamu ASC");
-            while($d=mysqli_fetch_array($sql)){
-			echo "
-				<td>
-				<div class='box'>
-			        <img src='temp/$d[id_tamu].png'>
-			        <p class='bawahKanan'>$d[nama]$d[nama]</p>
-			    </div>
-				</td>
+
+<center><a href="#" class="no-print" onclick="window.print();"><i class="fa fa-print"></i> Cetak/Print</a></center>
+		<div class="container-fluid pt70 pb70">
+			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+				<?php
+				$sql=mysqli_query($konek, "SELECT * FROM tamu ORDER BY id_tamu ASC");
+	            while($d=mysqli_fetch_array($sql)){
+				echo "
+				<div class='fh5co-project'>
+					<a href='single.html'>
+						<img src='temp/$d[id_tamu].png'  height='110px' width='110px'>
+						<h2>$d[id_tamu] <br> $d[nama]</h2>
+					</a>
+				</div>
 				";     
-		}
-        ?>
-    </tr>
-    </table>
-<br>
-<center><a href="#" class="no-print" onclick="window.print();">Cetak/Print</a></center>
+				}
+       			?>
+			</div>
+			<!--END .fh5co-projects-feed-->
+		</div>
+		<!-- END .container-fluid -->
+<div class="clearfix"></div>
 </body>
 </html>

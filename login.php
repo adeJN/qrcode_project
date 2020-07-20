@@ -158,7 +158,7 @@ include "koneksi.php";
                                                 </div>
                                                 <div class="col-xl-12">
                                                     <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
-                                                    <button  type="submit"  class="boxed_btn3">></button>
+                                                    <button  type="submit"  class="boxed_btn3">masuk</button>
                                                 </div>
                                             </div>
                                         </form>

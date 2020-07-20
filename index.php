@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Weeding</title>
+    <title>Wedding Nahnu & Fia</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -95,7 +95,7 @@
                 <div class="col-xl-12">
                     <div class="section_title text-center">
                         <img src="img/banner/flowers.png" alt="">
-                        <h3>The. WEDDING. OF</h3>
+                        <h3>The Wedding Of</h3>
                     </div>
                 </div>
             </div>
@@ -105,13 +105,13 @@
                         <div class="story_thumb">
                             <img src="img/story/1.png" alt="">
                         </div>
-                        <span>Groom</span>
+                      <!--   <span>Groom</span>
                         <h3>Jack Wonner</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                             alteration in some content of a page when looking at its layout. The point of using Lorem
                             Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
                             Content here content here, making it look like readable English. Many desktop publishing
-                            packages and web page editors now use.</p>
+                            packages and web page editors now use.</p> -->
                         <div class="social_links">
                             <ul>
                                 <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
@@ -124,11 +124,11 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="weding_time_line text-center">
                         <div class="single_time_line">
-                            <h3>Fast Meet</h3>
-                            <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
-                                alteration in some.</p>
+                            <h3>Nahnu & Fia</h3>
+                            <p>Sumatra Grand Ballroom <br>
+                            Jambuluwuk Convention Hall & Resort Kota Batu</p>
                         </div>
-                        <div class="single_time_line">
+<!--                         <div class="single_time_line">
                             <h3>He Proposed</h3>
                             <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                                 alteration in some.</p>
@@ -137,9 +137,9 @@
                             <h3>Love Story</h3>
                             <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                                 alteration in some.</p>
-                        </div>
+                        </div> -->
                         <div class="single_time_line">
-                            <h3>Wedding Day</h3>
+                        <!--  <h3>Wedding Day</h3> -->
                         </div>
                     </div>
                 </div>
@@ -148,13 +148,13 @@
                         <div class="story_thumb">
                             <img src="img/story/2.png" alt="">
                         </div>
-                        <span>Bride</span>
+                    <!--     <span>Bride</span>
                         <h3>Anjelina Kona</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                             alteration in some content of a page when looking at its layout. The point of using Lorem
                             Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
                             Content here content here, making it look like readable English. Many desktop publishing
-                            packages and web page editors now use.</p>
+                            packages and web page editors now use.</p> -->
                         <div class="social_links">
                             <ul>
                                 <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
@@ -176,13 +176,13 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="quick_links">
-                        <ul>
+          <!--               <ul>
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Scan QR</a></li>
                             <li><a href="#">Guest</a></li>
                             <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
+                        </ul> -->
+  <!--                   </div>
                 </div>
             </div>
         </div>
@@ -192,7 +192,7 @@
             <div class="footer_border"></div>
             <div class="row">
                 <div class="col-xl-12">
-                    <p class="copy_right text-center">
+                    <p class="copy_right text-center"> -->
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="ade" target="_blank">MNGAD Production</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

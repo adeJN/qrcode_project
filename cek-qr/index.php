@@ -36,7 +36,7 @@
                         <div class="col-xl-3 col-lg-3">
                             <div class="logo-img">
                                 <a href="index.html">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="../img/logo.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -107,6 +107,8 @@
                         <canvas style="width:480px"></canvas>
                     </center>
                     </div>
+        <hr>
+        <center><select></select></center>
                 </div>
             </div>
         </div>

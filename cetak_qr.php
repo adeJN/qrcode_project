@@ -44,9 +44,9 @@ include "koneksi.php";
 	            while($d=mysqli_fetch_array($sql)){
 				echo "
 				<div class='fh5co-project'>
-					<a href='single.html'>
+					<a href=''>
 						<img src='temp/$d[id_tamu].png'  height='110px' width='110px'>
-						<h2>$d[id_tamu] <br> $d[nama]</h2>
+						<h2>$d[nama]</h2>
 					</a>
 				</div>
 				";     

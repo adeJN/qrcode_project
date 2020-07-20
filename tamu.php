@@ -13,7 +13,7 @@ include "koneksi.php";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Weeding</title>
+    <title>Wedding Nahnu & Fia </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -119,7 +119,7 @@ include "koneksi.php";
                         <a class="boxed_btn3" style="margin-bottom: 10px" href=""><i class="fa fa-download"></i> Download Laporan</a>
                         </center>
                         <br>
-                        <table id="tabel-data" class="table table-bordered table-striped">
+                        <table id="tabel-data" class="table table-bordered table-striped" STYLE="font-family:sans-serif;">
                             <thead>
                             <tr>
                                 <th>No</th>
@@ -188,6 +188,7 @@ include "koneksi.php";
                                                         <option value="vip">VIP</option>
                                                     </select>
                                                 </div>
+                                                <br>
                                                 <div class="col-xl-12">
                                                     <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
                                                     <button  type="submit"  class="boxed_btn3">tambah</button>
@@ -259,7 +260,7 @@ include "koneksi.php";
                                                 </div>
                                                 <div class="col-xl-12">
                                                     <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
-                                                    <button  type="submit"  class="boxed_btn3">tambah</button>
+                                                    <button  type="submit"  class="boxed_btn3">Edit</button>
                                                 </div>
                                             </div>
                                         </form>

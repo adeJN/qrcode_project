@@ -99,7 +99,7 @@ include "koneksi.php";
                                     <div class="popup_inner">
                                         <div class="form_heading text-center">
                                             <img src="img/banner/flowers.png" alt="" style="margin-top: -20px;margin-bottom: 20px">
-
+                                            <br>
                                             <?php
                                                 $sql=mysqli_query($konek, "SELECT * FROM tamu WHERE id_tamu='$_POST[id_tamu]'");
                                                 $d=mysqli_fetch_array($sql);
@@ -114,19 +114,25 @@ include "koneksi.php";
                                             }else{
                                             ?>
                                             <h3>Terimakasih<br>telah hadir</h3>
-                                            <a href="" class="genric-btn primary-border e-large" style="height: 50px"><h3><?php echo $d['nama']; ?></h3></a>
+                                            <!-- <a href="" class="genric-btn primary-border e-large" > -->
+                                                <u><h3 style="font-family:tahoma;"><?php echo $d['nama']; ?></h3></u>
+                                            <!-- </a> -->
                                             <br>
-                                            <br>
-                                            <h4><?php echo $d['alamat']; ?></h4>
+                                            <h6><?php echo $d['alamat']; ?></h6>
                                         </div>
-                                        <br>
                                         <form method="post" action="" role="form">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <select class="form-select wide"  id="default-select" class="">
+                                                    <input type="" name="" value="<?php echo $_POST['id_tamu'];  ?>" />
+                                                </div>
+
+                                                <div class="col-xl-12">
+                                                    <select class="form-select wide"  id="default-select" class="" name >
                                                         <option value="1">1 Guest</option>
                                                         <option value="2">2 Guest</option>
                                                         <option value="3">3 Guest</option>
+                                                        <option value="4">4 Guest</option>
+                                                        <option value="5">5 Guest</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-xl-12">

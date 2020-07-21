@@ -99,6 +99,21 @@ if(isset($_GET['act'])){
 
 	}
 
+	if($_GET['act']=='update_setelahcekqr'){
+		// menangkap data yang di kirim dari form
+		$id_tamu=$_POST['id'];
+		$jumlah = $_POST['jumlah'];
+		$keterangan = $_POST['keterangan'];
+		$datang = "sudah";
+
+		// update data ke database
+		mysqli_query($konek,"update tamu set datang='$datang', jumlah='$jumlah', keterangan='$keterangan'  where id_tamu='$id_tamu'");
+
+		// mengalihkan halaman kembali ke index.php
+		header("location:tamu.php");
+
+	}  // akhir proses edit data
+
 	else{
 		header('location:tamu.php');
 	}

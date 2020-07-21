@@ -89,7 +89,7 @@
         </div>
         <div class="flowaers_bottom d-none d-lg-block">
                 <img src="../img/banner/flower-bottom.png" alt="">
-            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -100,15 +100,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-3">
+                <div class="col-xl-1">
                 </div>
                 <div class="col-xl-6">
                     <div id="clock" class="countdown_area counter_bg ">
+                        <center>
                         <canvas style="width:480px"></canvas>
-                    </center>
+                        <hr>
+                        <select></select>
+                        </center>
+                        <br>
                     </div>
-        <hr>
-        <center><select></select></center>
+                        <center>
+                            <br>
+                            <a class="boxed_btn3" href=""><i class="fa fa-users"></i> Tambah tamu tak terdaftar</a>
+                        </center>
+                </div>
+
+                <div class="col-xl-4">
+                    <h1>Jumlah tamu yang datang :</h1>
                 </div>
             </div>
         </div>

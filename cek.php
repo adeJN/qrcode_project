@@ -120,27 +120,31 @@ include "koneksi.php";
                                             <br>
                                             <h6><?php echo $d['alamat']; ?></h6>
                                         </div>
-                                        <form method="post" action="" role="form">
+                                        <form method="post" action="aksi_tamu.php?act=update_setelahcekqr" role="form">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <input type="" name="" value="<?php echo $_POST['id_tamu'];  ?>" />
+                                                    <input type="" name="id" value="<?php echo $_POST['id_tamu'];  ?>" />
                                                 </div>
 
                                                 <div class="col-xl-12">
-                                                    <select class="form-select wide"  id="default-select" class="" name >
+                                                    <select class="form-select wide"  id="default-select" class="" name="jumlah" >
                                                         <option value="1">1 Guest</option>
                                                         <option value="2">2 Guest</option>
                                                         <option value="3">3 Guest</option>
                                                         <option value="4">4 Guest</option>
                                                         <option value="5">5 Guest</option>
+                                                        <option value="6">6 Guest</option>
+                                                        <option value="7">7 Guest</option>
+                                                        <option value="8">8 Guest</option>
+                                                        <option value="9">9 Guest</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-xl-12">
-                                                    <textarea placeholder="Keterangan"></textarea>
+                                                    <textarea placeholder="Keterangan" name="keterangan"></textarea>
                                                 </div>
                                                 <div class="col-xl-12">
                                                     <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
-                                                    <button  type="submit"  class="boxed_btn3">submit</button>
+                                                    <button type="submit" class="boxed_btn3">submit</button>
                                                 </div>
                                             </div>
                                         </form>

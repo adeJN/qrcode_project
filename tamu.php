@@ -128,6 +128,7 @@ include "koneksi.php";
                                 <th>Alamat</th>
                                 <th>*</th>
                                 <th>Datang</th>
+                                <th>Jumlah</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -143,6 +144,7 @@ include "koneksi.php";
                                     <td>$d[alamat]</td>
                                     <td>$d[posisi]</td>
                                     <td>$d[datang]</td>
+                                    <td>$d[jumlah]</td>
                                     <td width='180px' align='center'>
                                         <a href='tamu.php?view=edit&id=$d[id_tamu]'><i class='fa fa-cog'></i></a>
                                         <a href='aksi_tamu.php?act=delete&id=$d[id_tamu]' id='hapus'><i class='fa fa-trash'></i></a>

@@ -113,7 +113,7 @@
                     </div>
                         <center>
                             <br>
-                            <a class="boxed_btn3" href=""><i class="fa fa-users"></i> Tambah tamu tak terdaftar</a>
+                            <a class="boxed_btn3" href=""><i class="fa fa-users"></i> Tambah tamu</a>
                         </center>
                 </div>
 

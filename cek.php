@@ -94,7 +94,7 @@ include "koneksi.php";
                             <img src="img/appointment/flower-bottom.png" alt="">
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-xl-7 col-lg-8">
+                            <div class="col-xl-7 col-lg-8"  style="margin-top:-10px">
                                 <div class="popup_box ">
                                     <div class="popup_inner">
                                         <div class="form_heading text-center">
@@ -106,7 +106,7 @@ include "koneksi.php";
 
                                                 if(mysqli_num_rows($sql) < 1){
                                                     ?>
-                                            <h3>Tamu tidak terdaftar</h3>
+                                            <h3>Code tidak terdeteksi</h3>
                                             <br>
                                             <h1><button class="boxed_btn3">masukkan tamu</button></h1>
                                         </div>
@@ -115,7 +115,7 @@ include "koneksi.php";
                                             ?>
                                             <h3>Terimakasih<br>telah hadir</h3>
                                             <!-- <a href="" class="genric-btn primary-border e-large" > -->
-                                                <u><h3 style="font-family:tahoma;"><?php echo $d['nama']; ?></h3></u>
+                                                <h3 style="font-family:tahoma;"><?php echo $d['nama']; ?></h3>
                                             <!-- </a> -->
                                             <br>
                                             <h6><?php echo $d['alamat']; ?></h6>
@@ -123,7 +123,7 @@ include "koneksi.php";
                                         <form method="post" action="aksi_tamu.php?act=update_setelahcekqr" role="form">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <input type="" name="id" value="<?php echo $_POST['id_tamu'];  ?>" />
+                                                    <input type="hidden" name="id" value="<?php echo $_POST['id_tamu'];  ?>" />
                                                 </div>
 
                                                 <div class="col-xl-12">
@@ -137,6 +137,8 @@ include "koneksi.php";
                                                         <option value="7">7 Guest</option>
                                                         <option value="8">8 Guest</option>
                                                         <option value="9">9 Guest</option>
+                                                        <option value="10">10 Guest</option>
+                                                        <option value="11">11 Guest</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-xl-12">

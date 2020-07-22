@@ -134,7 +134,7 @@ include "koneksi.php";
                             </thead>
                             <tbody>
                             <?php
-                            $sql=mysqli_query($konek, "SELECT * FROM tamu ORDER BY id_tamu ASC");
+                            $sql=mysqli_query($konek, "SELECT * FROM tamu ORDER BY id_tamu DESC");
                             $no=1;
                             while($d=mysqli_fetch_array($sql)){
                                 echo "<tr>

@@ -34,6 +34,15 @@ if(isset($_GET['act'])){
 		$nama 	= $_POST['nama'];
 		$alamat  = $_POST['alamat'];
 		$posisi  = $_POST['posisi'];
+
+		$cektamu=mysqli_num_rows(mysqli_query($konek, "SELECT * FROM tamu WHERE nama='$_POST[nama]'"));
+		if($cektamu > 0) {
+		        echo '<script language="javascript">
+		              alert ("Nama sudah ada");
+		              window.location="tamu.php?view=tambah";
+		              </script>';
+		              exit();
+		}
 		
 		if($nama==''){
 			header('location:tamu.php?view=tambah');

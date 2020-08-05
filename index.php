@@ -1,3 +1,8 @@
+<?php
+    include "koneksi.php";
+    ob_start();
+    session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -49,9 +54,9 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.php">home</a></li>
+                                        <li><a class="active" href="index.php">Beranda</a></li>
                                         <li><a href="./cek-qr">Scan QR</a></li>
-                                        <li><a href="login.php">Guest</a></li>
+                                        <li><a href="login.php">Tamu</a></li>
                                         <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -64,11 +69,8 @@
                                                 <li><a href="elements.html">elements</a></li>
                                             </ul>
                                         </li> -->
-                                        <li><a href="contact.php">Contact</a></li>
+                                  <!--       <li><a href="contact.php">Contact</a></li> -->
                                         <?php
-                                            include "koneksi.php";
-                                            ob_start();
-                                            session_start();
                                             if(isset($_SESSION['login'])){
                                         ?>
                                         <li><a href="logout.php" id="logout">logout</a></li>
@@ -105,6 +107,7 @@
                         <div class="story_thumb">
                             <img src="img/story/1.png" alt="">
                         </div>
+                        <br>
                       <!--   <span>Groom</span>
                         <h3>Jack Wonner</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
@@ -148,6 +151,7 @@
                         <div class="story_thumb">
                             <img src="img/story/2.png" alt="">
                         </div>
+                        <br>
                     <!--     <span>Bride</span>
                         <h3>Anjelina Kona</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered

@@ -34,10 +34,15 @@ include "koneksi.php";
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-
+<!-- 
+    -- dari internet
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/jquery.dataTables.min.css">
+    <script src="css/jquery.min.js"></script>
+    <script src="css/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
@@ -62,9 +67,9 @@ include "koneksi.php";
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">home</a></li>
+                                        <li><a href="index.php">Beranda</a></li>
                                         <li><a href="./cek-qr">Scan QR</a></li>
-                                        <li><a class="active" href="login.php">Guest</a></li>
+                                        <li><a class="active" href="login.php">Tamu</a></li>
                                         <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -76,9 +81,9 @@ include "koneksi.php";
                                                 <li><a href="Accommodation.html">Accommodation</a></li>
                                                 <li><a href="elements.html">elements</a></li>
                                             </ul>
-                                        </li> -->
+                                        </li> --><!-- 
                                         <li><a href="contact.php">Contact</a></li>
-                                        <li><a href="logout.php" id="logout">logout</a></li>
+                                      -->   <li><a href="logout.php" id="logout">logout</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -100,7 +105,7 @@ include "koneksi.php";
                 <div class="col-xl-12">
                     <div class="section_title text-center">
                         <img src="img/banner/flowers.png" alt="">
-                        <h3>~ Guest ~</h3>
+                        <h3>~ Tamu Undangan ~</h3>
                     </div>
                 </div>
             </div>
@@ -116,19 +121,20 @@ include "koneksi.php";
                         <center>
                         <a class="boxed_btn3" style="margin-bottom: 10px" href="tamu.php?view=tambah"><i class="fa fa-plus"></i> Tambah Data</a>
                         <a class="boxed_btn3" style="margin-bottom: 10px" href="cetak_qr.php" target="_blank"><i class="fa fa-print"></i> Cetak QR-Code</a>
-                        <a class="boxed_btn3" style="margin-bottom: 10px" href=""><i class="fa fa-download"></i> Download Laporan</a>
+                        <a class="boxed_btn3" style="margin-bottom: 10px" href="cetak_laporan.php" target="_blank"><i class="fa fa-download"></i> Download Laporan</a>
                         </center>
                         <br>
                         <table id="tabel-data" class="table table-bordered table-striped" STYLE="font-family:sans-serif;">
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>ID Tamu</th>
+                                <th>-</th>
                                 <th>Nama Tamu</th>
                                 <th>Alamat</th>
                                 <th>*</th>
                                 <th>Datang</th>
                                 <th>Jumlah</th>
+                                <th>Ket</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -139,12 +145,13 @@ include "koneksi.php";
                             while($d=mysqli_fetch_array($sql)){
                                 echo "<tr>
                                     <td width='40px' align='center'>$no</td>
-                                    <td>$d[id_tamu]</td>
+                                    <td style='font-size:10px'>$d[id_tamu]</td>
                                     <td>$d[nama]</td>
                                     <td>$d[alamat]</td>
                                     <td>$d[posisi]</td>
                                     <td>$d[datang]</td>
                                     <td>$d[jumlah]</td>
+                                    <td>$d[keterangan]</td>
                                     <td width='180px' align='center'>
                                         <a href='tamu.php?view=edit&id=$d[id_tamu]'><i class='fa fa-cog'></i></a>
                                         <a href='aksi_tamu.php?act=delete&id=$d[id_tamu]' id='hapus'><i class='fa fa-trash'></i></a>
@@ -158,6 +165,61 @@ include "koneksi.php";
                     </div>
                 </div>
             </div>
+
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="panel-body">
+                        <center>
+                        <h1><i class="fa fa-user"></i>&nbsp Tamu tidak membawa undangan :
+                            <?php
+                            $qry = mysqli_query($konek,"select count(id_tamu) as total from tamulain");
+                            $data = mysqli_fetch_array($qry);
+                                echo $data['total'];
+                            ?>
+                        </h1>
+                        </center>
+                        <br>
+                        <table id="tabel-data" class="table table-bordered table-striped" STYLE="font-family:sans-serif;">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>-</th>
+                                <th>Nama Tamu</th>
+                                <th>Alamat</th>
+                                <th>Jumlah</th>
+                                <th>Ket</th>
+                                <th>Aksi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $sql=mysqli_query($konek, "SELECT * FROM tamulain ORDER BY id_tamu DESC");
+                            $no=1;
+                            while($d=mysqli_fetch_array($sql)){
+                                echo "<tr>
+                                    <td width='40px' align='center'>$no</td>
+                                    <td style='font-size:10px'>$d[id_tamu]</td>
+                                    <td>$d[nama]</td>
+                                    <td>$d[alamat]</td>
+                                    <td>$d[jumlah]</td>
+                                    <td>$d[keterangan]</td>
+                                    <td width='180px' align='center'>
+                                        <a href='tamu.php?view=edittamulain&id=$d[id_tamu]'><i class='fa fa-cog'></i></a>
+                                        <a href='aksi_tamu.php?act=deletetamulain&id=$d[id_tamu]' id='hapus'><i class='fa fa-trash'></i></a>
+                                    </td>
+                                </tr>";
+                                $no++;
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
             <?php
                 break;
                 case "tambah":
@@ -179,7 +241,7 @@ include "koneksi.php";
                                         <form method="post" action="aksi_tamu.php?act=insert" role="form">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <input type="text" name="nama" placeholder="Nama">
+                                                    <input type="text" name="nama" placeholder="Nama" required="">
                                                 </div>
                                                 <div class="col-xl-12">
                                                     <input type="text" name="alamat" placeholder="Alamat">
@@ -237,11 +299,11 @@ include "koneksi.php";
                                         <form method="post" action="aksi_tamu.php?act=update" role="form">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <input type="text" name="nama" value="<?php echo $d['nama'] ?>">
                                                     <input type="hidden" name="id" value="<?php echo $d['id_tamu'] ?>">
+                                                    <input type="text" name="nama" value="<?php echo $d['nama'] ?>" required="">
                                                 </div>
                                                 <div class="col-xl-12">
-                                                    <input type="text" name="alamat" value="<?php echo $d['alamat'] ?>">
+                                                    <input type="text" name="alamat" value="<?php echo $d['alamat'] ?>" placeholder="alamat">
                                                 </div>
                                                 <div class="col-xl-12">
                                                     <select class="form-select wide" name="posisi" id="default-select" class="">
@@ -261,7 +323,29 @@ include "koneksi.php";
                                                     </select>
                                                 </div>
                                                 <div class="col-xl-12">
-                                                    <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
+                                                    <select class="form-select wide" name="datang" id="default-select" class="">
+                                                        <?php 
+                                                            if($d['datang']=='belum'){
+                                                                echo"
+                                                                <option value='belum' selected>belum</option>
+                                                                <option value='sudah'>sudah</option>
+                                                                ";
+                                                            }else if($d['datang']=='sudah'){
+                                                                echo"
+                                                                <option value='belum' >belum</option>
+                                                                <option value='sudah' selected>sudah</option>
+                                                                ";
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="number" name="jumlah" value="<?php echo $d['jumlah'] ?>">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <textarea name="keterangan" cols="30" rows="9" placeholder="keterangan"><?php echo $d['keterangan'] ?></textarea>
+                                                </div>
+                                                <div class="col-xl-12">
                                                     <button  type="submit"  class="boxed_btn3">Edit</button>
                                                 </div>
                                             </div>
@@ -281,6 +365,119 @@ include "koneksi.php";
             </div>
             <?php
                 break;
+                case "tambahtamulain":            
+            ?>
+            <div class="attending_area" style="margin-top: -130px">
+            <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+                    <div class="main_attending_area">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="popup_box ">
+                                    <div class="popup_inner">
+                                        <div class="form_heading text-center">
+                                            <h3>Tambah data tamu</h3>
+                                            <p>isi kolom dibawah</p>
+                                        </div>
+                                        <form method="post" action="aksi_tamu.php?act=inserttamulain" role="form">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="nama" placeholder="Nama" required="">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="alamat" placeholder="Alamat">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="number" name="jumlah" placeholder="jumlah" required="">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <textarea name="keterangan" cols="30" rows="9" placeholder="keterangan"></textarea>
+                                                </div>
+                                                <br>
+                                                <div class="col-xl-12">
+                                                    <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
+                                                    <button  type="submit"  class="boxed_btn3">tambah</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <br>
+                                    <center><a href="./cek-qr"><< Kembali</a></center>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+            <?php
+                break;
+                case "edittamulain":            
+            ?>
+
+            <div class="attending_area" style="margin-top: -130px">
+            <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+                    <div class="main_attending_area">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="popup_box ">
+                                    <div class="popup_inner">
+                                        <div class="form_heading text-center">
+                                            <h3>edit data tamu</h3>
+                                            <p>isi kolom dibawah</p>
+                                        </div>
+
+                                        <?php 
+                                            $id_tamu=$_GET['id'];
+                                            $data = mysqli_query($konek,"select * from tamulain where id_tamu='$id_tamu'");
+                                            while($d = mysqli_fetch_array($data)){
+
+                                        ?>
+
+                                        <form method="post" action="aksi_tamu.php?act=updatetamulain" role="form">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <input type="hidden" name="id" placeholder="Nama" value="<?php echo $id_tamu ?>" required="">
+                                                    <input type="text" name="nama" placeholder="Nama" value="<?php echo $d['nama'] ?>" required="">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="alamat" placeholder="Alamat" value="<?php echo $d['alamat'] ?>">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="number" name="jumlah" placeholder="jumlah" value="<?php echo $d['jumlah'] ?>" required="">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <textarea name="keterangan" cols="30" rows="9" placeholder="keterangan"><?php echo $d['keterangan'] ?></textarea>
+                                                </div>
+                                                <br>
+                                                <div class="col-xl-12">
+                                                    <!-- <input type="submit" class="boxed_btn3" value="-" /> -->
+                                                    <button  type="submit"  class="boxed_btn3">tambah</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <?php } ?>
+                                        <br>
+                                    <center><a href="tamu.php"><< Kembali</a></center>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+            <?php
+                break;
             }
             ?>
         </div>
@@ -294,10 +491,10 @@ include "koneksi.php";
                     <div class="col-xl-12">
                         <div class="quick_links">
                             <ul>
-                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Beranda</a></li>
                                 <li><a href="#">Scan QR</a></li>
-                                <li><a href="#">Guest</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Tamu</a></li>
+                                <!-- <li><a href="#">Contact</a></li> -->
                             </ul>
                         </div>
                     </div>

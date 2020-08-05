@@ -13,7 +13,7 @@ include "koneksi.php";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Weeding</title>
+    <title>Wedding Nahnu & Fia</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -57,9 +57,9 @@ include "koneksi.php";
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">home</a></li>
+                                        <li><a href="index.php">Beranda</a></li>
                                         <li><a href="./cek-qr">Scan QR</a></li>
-                                        <li><a class="active" href="login.php">Guest</a></li>
+                                        <li><a class="active" href="login.php">Tamu</a></li>
                                         <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -71,9 +71,9 @@ include "koneksi.php";
                                                 <li><a href="Accommodation.html">Accommodation</a></li>
                                                 <li><a href="elements.html">elements</a></li>
                                             </ul>
-                                        </li> -->
+                                        </li> --><!-- 
                                         <li><a href="contact.php">Contact</a></li>
-                                    </ul>
+                              -->       </ul>
                                 </nav>
                             </div>
                         </div>
@@ -173,7 +173,7 @@ include "koneksi.php";
     </div>
     <!-- / attend_area -->
     <!-- accommodation_area  -->
-    <div class="accommodation_area">
+<!--     <div class="accommodation_area">
         <div class="container">
                 <div class="row">
                         <div class="col-xl-8 offset-xl-2">
@@ -201,7 +201,7 @@ include "koneksi.php";
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--/ accommodation_area  -->
    <!-- footer_start -->
    <footer class="footer">
@@ -211,10 +211,10 @@ include "koneksi.php";
                 <div class="col-xl-12">
                     <div class="quick_links">
                         <ul>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Beranda</a></li>
                             <li><a href="#">Scan QR</a></li>
-                            <li><a href="#">Guest</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Tamu</a></li>
+                            <!-- <li><a href="#">Contact</a></li> -->
                         </ul>
                     </div>
                 </div>

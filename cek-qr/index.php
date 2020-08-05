@@ -1,10 +1,15 @@
+<?php
+    include "../koneksi.php";
+    ob_start();
+    session_start();    
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Weeding</title>
+    <title>Wedding Nahnu & Fia</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,9 +49,9 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="../index.php">home</a></li>
+                                        <li><a href="../index.php">Beranda</a></li>
                                         <li><a class="active" href="index.php">Scan QR</a></li>
-                                        <li><a href="../login.php">Guest</a></li>
+                                        <li><a href="../login.php">Tamu</a></li>
                                         <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -59,11 +64,8 @@
                                                 <li><a href="elements.html">elements</a></li>
                                             </ul>
                                         </li> -->
-                                        <li><a href="../contact.php">Contact</a></li>
+                                        <!-- <li><a href="../contact.php">Contact</a></li> -->
                                         <?php
-                                            include "../koneksi.php";
-                                            ob_start();
-                                            session_start();
                                             if(isset($_SESSION['login'])){
                                         ?>
                                         <li><a href="../logout.php" id="logout">logout</a></li>
@@ -113,12 +115,35 @@
                     </div>
                         <center>
                             <br>
-                            <a class="boxed_btn3" href=""><i class="fa fa-users"></i> Tambah tamu</a>
+                            <a class="boxed_btn3" href="../tamu.php?view=tambahtamulain"><i class="fa fa-users"></i> Tambah tamu</a>
                         </center>
                 </div>
 
                 <div class="col-xl-4">
-                    <h1>Jumlah tamu yang datang :</h1>
+
+                        <div class="story_thumb">
+                            <img src="../img/story/gabung.png" height="380px" alt="">
+                        </div>
+                        <br>
+                    <h3>
+                        <b style="color:black;">Jumlah tamu hadir :</b>
+                    </h3>
+                    <font size="8" style="font-family:arial;">                        
+                        <i class="fa fa-user"></i>
+                    </font>
+                    <font size="10" style="font-family:arial;">
+                        <b style="color:black;">
+                        <?php
+                        $qry = mysqli_query($konek,"select SUM(jumlah) as total from tamu where datang='sudah'");
+                        $data = mysqli_fetch_array($qry);
+                        if($data['total']==0){
+                            echo "0";
+                        }else{
+                            echo $data['total'];
+                        }
+                        ?>
+                        </b>
+                    </font>
                 </div>
             </div>
         </div>

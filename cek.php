@@ -7,7 +7,7 @@ include "koneksi.php";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Weeding</title>
+    <title>Wedding Nahnu & Fia</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -51,9 +51,9 @@ include "koneksi.php";
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">home</a></li>
+                                        <li><a href="index.php">Beranda</a></li>
                                         <li><a href="./cek-qr">Scan QR</a></li>
-                                        <li><a class="active" href="login.php">Guest</a></li>
+                                        <li><a class="active" href="login.php">Tamu</a></li>
                                         <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -66,7 +66,7 @@ include "koneksi.php";
                                                 <li><a href="elements.html">elements</a></li>
                                             </ul>
                                         </li> -->
-                                        <li><a href="contact.php">Contact</a></li>
+                                   <!--      <li><a href="contact.php">Contact</a></li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -108,7 +108,8 @@ include "koneksi.php";
                                                     ?>
                                             <h3>Code tidak terdeteksi</h3>
                                             <br>
-                                            <h1><button class="boxed_btn3">masukkan tamu</button></h1>
+                                            <h1><a href="tamu.php?view=tambahtamulain"><button class="boxed_btn3"><i class="fa fa-users"></i> Masukkan tamu</button></a></h1>
+                                            <a href="./cek-qr"><< kembali</a>
                                         </div>
                                             <?php
                                             }else{
@@ -117,8 +118,8 @@ include "koneksi.php";
                                             <!-- <a href="" class="genric-btn primary-border e-large" > -->
                                                 <h3 style="font-family:tahoma;"><?php echo $d['nama']; ?></h3>
                                             <!-- </a> -->
-                                            <br>
-                                            <h6><?php echo $d['alamat']; ?></h6>
+                        
+                                            <h6 style="font-family:tahoma; font-size:12px; color:#c78665;"><?php echo $d['alamat']; ?></h6>
                                         </div>
                                         <form method="post" action="aksi_tamu.php?act=update_setelahcekqr" role="form">
                                             <div class="row">
@@ -139,6 +140,7 @@ include "koneksi.php";
                                                         <option value="9">9 Guest</option>
                                                         <option value="10">10 Guest</option>
                                                         <option value="11">11 Guest</option>
+                                                        <option value="12">12 Guest</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-xl-12">
@@ -171,10 +173,10 @@ include "koneksi.php";
                 <div class="col-xl-12">
                     <div class="quick_links">
                         <ul>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Beranda</a></li>
                             <li><a href="#">Scan QR</a></li>
-                            <li><a href="#">Guest</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Tamu</a></li>
+                     <!--        <li><a href="#">Contact</a></li> -->
                         </ul>
                     </div>
                 </div>

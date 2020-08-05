@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21 Jul 2020 pada 05.27
+-- Generation Time: 04 Agu 2020 pada 20.39
 -- Versi Server: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -38,8 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idadmin`, `username`, `password`, `namalengkap`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Dadung Awuk'),
-(4, 'basuki', 'b4e364bb5eab14eedd9ae3d54437d52f', 'Basuki Oke');
+(1, 'wedding', '3fc0a7acf087f549ac2b266baf94b8b1', 'wedding'),
+(5, 'ade', 'a562cfa07c2b1213b3a5c99b756fc206', '');
 
 -- --------------------------------------------------------
 
@@ -169,7 +169,7 @@ INSERT INTO `tamu` (`id_tamu`, `nama`, `alamat`, `posisi`, `datang`, `jumlah`, `
 ('GST099', 'HADI SUNARKO / MBAK LUKY', 'TEMAN MAMA', 'reg', 'belum', 0, ''),
 ('GST100', 'MBAK YULI - BATU', 'TEMAN MAMA', 'reg', 'belum', 0, ''),
 ('GST101', 'Drs. ARIS W', 'TEMAN PAPA', 'reg', 'belum', 0, ''),
-('GST102', 'Drs. ARIS W', 'TEMAN PAPA', 'reg', 'belum', 0, ''),
+('GST102', 'Ir. SONHAJI', 'TEMAN PAPA', 'reg', 'belum', 0, ''),
 ('GST103', 'PAK MUSTOFA', 'TEMAN PAPA', 'reg', 'belum', 0, ''),
 ('GST104', 'ABDUL ROFIK', 'TEMAN PAPA', 'reg', 'belum', 0, ''),
 ('GST105', 'PAK MUADIB', 'TEMAN PAPA', 'reg', 'belum', 0, ''),
@@ -361,7 +361,95 @@ INSERT INTO `tamu` (`id_tamu`, `nama`, `alamat`, `posisi`, `datang`, `jumlah`, `
 ('GST292', 'Muhammad Ghifari Robby', 'SMAN 4 MALANG', 'reg', 'belum', 0, ''),
 ('GST293', 'Ulin Nafi ah, S. Ag.', 'SMAN 4 MALANG', 'reg', 'belum', 0, ''),
 ('GST294', 'Mamik Sumarni, M.Pd.', '', 'reg', 'belum', 0, ''),
-('GST295', 'ade fajar ', 'jalanan', 'vip', 'sudah', 8, 'tonighauew');
+('GST295', 'Dra. RETNO MARGANINGSIH', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST296', 'Dr. ENI RACHYUNINGSIH', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST297', 'SOSIATI S MANARANSYAH, SH, M.Kn', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST298', 'MUKLIS', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST299', 'ANDIK (ANAK PAK JITO)', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST300', 'SAMSUL ARIF / MBK UU', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST301', 'PAK TIFAN', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST302', 'PAK WASIS', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST303', 'PAK BARON', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST304', 'PAK JUHAIMI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST305', 'PAK DIDIK DPR', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST306', 'BU WIWIK', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST307', 'PAK KOKO', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST308', 'PAK FAJAR', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST309', 'PAK JITO', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST310', 'PAK MUBARAK', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST311', 'PAK GURUH', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST312', 'BU SRI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST313', 'PAK DIDIK BU SUCI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST314', 'MBK ISMI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST315', 'PAK BAMBANG', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST316', 'HUDA', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST317', 'H. ANWAR', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST318', 'AGUS SAPUTRO KERUPUK', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST319', 'H IRFAN', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST320', 'PAK GANIP', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST321', 'H.PARDI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST322', 'Hj ENDANG', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST323', 'MBK YULI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST324', 'MBK ANA', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST325', 'MBK PENI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST326', 'PAK YO', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST327', 'PAK HERI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST328', 'BU ENDANG BU KAJI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST329', 'BU CICI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST330', 'PAK ISMAIL', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST331', 'BU ANIK', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST332', 'SUMADJI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST333', 'NANANG /  BU NGAFIAH', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST334', 'PAK MERU / BU TATIK', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST335', 'MBK NDARI / MAS TOTOK', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST336', 'YUSUF - LAHOR', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST337', 'NANANG / ATIK', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST338', 'Dr. CAHYO', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST339', 'HARI - MALANG', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST340', 'BU  JUM / BU NO', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST341', 'BU KARMAN - MALANG', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST342', 'AGUS KARMAN - MALANG', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST343', 'HARI KARMAN - MALANG', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST344', 'MINTO ', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST345', 'H. ROKIM', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST346', 'MAMUK', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST347', 'KAMIM', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST348', 'JUKI', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST349', 'PRAMINTO', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST350', 'ROSLINA SIDABUKE, SH', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST351', 'RETNO, SH', 'KERABAT', 'reg', 'belum', 0, ''),
+('GST352', 'Pak Suwarno', 'RT 2', 'reg', 'belum', 0, ''),
+('GST353', 'Pak Hariyadi', 'Apotek', 'reg', 'belum', 0, ''),
+('GST354', 'Pak Unggul', 'RT 3', 'reg', 'belum', 0, ''),
+('GST355', 'Pak Hari H', 'RT 3', 'reg', 'belum', 0, ''),
+('GST356', 'Pak Tofa', 'RT 3', 'reg', 'belum', 0, ''),
+('GST357', 'Pak Mardiono', 'RT 2', 'reg', 'belum', 0, ''),
+('GST358', 'Pak Kasmono', 'RT 2', 'reg', 'belum', 0, ''),
+('GST359', 'Pak Doni Saferi', 'RT 2', 'reg', 'belum', 0, ''),
+('GST360', 'Pak Bramantyo', 'RT4', 'reg', 'belum', 0, ''),
+('GST361', 'Pak Sariono', '', 'reg', 'belum', 0, ''),
+('GST362', 'Pak Slamet', '', 'reg', 'belum', 0, ''),
+('GST363', 'Reinaldo D', '', 'reg', 'belum', 0, ''),
+('GST364', 'Norma Oktaviatul', '', 'reg', 'belum', 0, ''),
+('GST365', 'Elia', '', 'reg', 'belum', 0, ''),
+('GST366', 'Rony', '', 'reg', 'belum', 0, ''),
+('GST367', 'Satria', '', 'reg', 'belum', 0, ''),
+('GST368', 'H. Wagimin', '', 'reg', 'belum', 0, ''),
+('GST369', 'H. Suradi', '', 'reg', 'belum', 0, ''),
+('GST370', 'Nardi - Polisi', '', 'reg', 'belum', 0, ''),
+('GST371', 'Sugeng heriyanto', '', 'reg', 'belum', 0, ''),
+('GST372', 'Sugeng Widodo', '', 'reg', 'belum', 0, ''),
+('GST373', 'Yanto -  Ella', '', 'reg', 'belum', 0, ''),
+('GST374', 'Mas Icuk - Retno', '', 'reg', 'belum', 0, ''),
+('GST375', 'Pak Dasno', '', 'reg', 'belum', 0, ''),
+('GST376', 'Suparno', '', 'reg', 'belum', 0, ''),
+('GST377', 'H. Radik', '', 'reg', 'belum', 0, ''),
+('GST378', 'Bramantyo', '', 'reg', 'belum', 0, ''),
+('GST379', 'H. Rasyid', '', 'reg', 'belum', 0, ''),
+('GST380', 'Pak Rusdi', '', 'reg', 'belum', 0, ''),
+('GST381', 'Pak Hariadi - Apotik', '', 'reg', 'belum', 0, ''),
+('GST382', 'Kasmono', '', 'reg', 'belum', 0, ''),
+('GST383', 'Riski Dwika', '', 'reg', 'belum', 0, '');
 
 -- --------------------------------------------------------
 
@@ -371,9 +459,18 @@ INSERT INTO `tamu` (`id_tamu`, `nama`, `alamat`, `posisi`, `datang`, `jumlah`, `
 
 CREATE TABLE `tamulain` (
   `id_tamu` int(11) NOT NULL,
-  `nama` varchar(111) NOT NULL,
-  `alamat` varchar(111) NOT NULL
+  `nama` text NOT NULL,
+  `alamat` varchar(111) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tamulain`
+--
+
+INSERT INTO `tamulain` (`id_tamu`, `nama`, `alamat`, `jumlah`, `keterangan`) VALUES
+(4, 'pak bayuh', 'japanan', 3, '36,7');
 
 --
 -- Indexes for dumped tables
@@ -411,7 +508,7 @@ ALTER TABLE `tamulain`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idadmin` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idadmin` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -421,7 +518,7 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT for table `tamulain`
 --
 ALTER TABLE `tamulain`
-  MODIFY `id_tamu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tamu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

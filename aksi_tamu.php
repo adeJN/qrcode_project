@@ -31,25 +31,22 @@ if(isset($_GET['act'])){
 		// echo $kodehasilID;
 
 		//variabel dari elemen form
-		$nama 	= $_POST['nama'];
+		$nama = $_POST['nama'];
 		$alamat  = $_POST['alamat'];
 		$posisi  = $_POST['posisi'];
 
 		$cektamu=mysqli_num_rows(mysqli_query($konek, "SELECT * FROM tamu WHERE nama='$_POST[nama]'"));
+
 		if($cektamu > 0) {
 		        echo '<script language="javascript">
 		              alert ("Nama sudah ada");
 		              window.location="tamu.php?view=tambah";
 		              </script>';
 		              exit();
-		}
-		
-		if($nama==''){
-			header('location:tamu.php?view=tambah');
 		}else{			
 			//proses simpan data admin
-			$simpan = mysqli_query($konek, "INSERT INTO tamu(id_tamu,nama,alamat,posisi,datang,jumlah) 
-							VALUES ('$kodehasilID','$nama','$alamat','$posisi','belum',0)");
+			$simpan = mysqli_query($konek, "INSERT INTO tamu(id_tamu,nama,alamat,posisi,datang,jumlah,keterangan) 
+							VALUES ('$kodehasilID','$nama','$alamat','$posisi','belum',0,'')");
 			
 			if($simpan){
 				// BUAT QRCODE
@@ -78,24 +75,33 @@ if(isset($_GET['act'])){
 				echo "Qr code telah dibuat";
 				header('location:tamu.php');
 			}else{
-				header('location:tamu.php');
+				echo '<script language="javascript">
+		              alert ("Data tidak valid");
+		              window.location="tamu.php?view=tambah";
+		              </script>';
+		              exit();
 			}
 		}
 	}
+
 	if($_GET['act']=='update'){
 		// menangkap data yang di kirim dari form
 		$id_tamu=$_POST['id'];
 		$nama = $_POST['nama'];
 		$posisi = $_POST['posisi'];
 		$alamat = $_POST['alamat'];
+		$datang = $_POST['datang'];
+		$jumlah = $_POST['jumlah'];
+		$keterangan = $_POST['keterangan'];
 
 		// update data ke database
-		mysqli_query($konek,"update tamu set nama='$nama', alamat='$alamat', posisi='$posisi'  where id_tamu='$id_tamu'");
+		mysqli_query($konek,"update tamu set nama='$nama', alamat='$alamat', posisi='$posisi', datang='$datang', jumlah='$jumlah', keterangan='$keterangan'  where id_tamu='$id_tamu'");
 
 		// mengalihkan halaman kembali ke index.php
 		header("location:tamu.php");
 
 	}  // akhir proses edit data
+
 	if($_GET['act']=='delete'){
 		// menangkap data yang di kirim dari form
 		$id_tamu=$_GET['id'];
@@ -103,6 +109,16 @@ if(isset($_GET['act'])){
 		// update data ke database
 		mysqli_query($konek, "DELETE FROM tamu WHERE id_tamu='$id_tamu'");
 		unlink("temp/$namafile");
+		// mengalihkan halaman kembali ke index.php
+		header("location:tamu.php");
+
+	}
+
+	if($_GET['act']=='deletetamulain'){
+		// menangkap data yang di kirim dari form
+		$id_tamu=$_GET['id'];
+		// update data ke database
+		mysqli_query($konek, "DELETE FROM tamulain WHERE id_tamu='$id_tamu'");
 		// mengalihkan halaman kembali ke index.php
 		header("location:tamu.php");
 
@@ -123,7 +139,51 @@ if(isset($_GET['act'])){
 
 	}  // akhir proses edit data
 
-	else{
+	if($_GET['act']=='updatetamulain'){
+		// menangkap data yang di kirim dari form
+		$id_tamu=$_POST['id'];
+		$nama = $_POST['nama'];
+		$alamat = $_POST['alamat'];
+		$jumlah = $_POST['jumlah'];
+		$keterangan = $_POST['keterangan'];
+
+		// update data ke database
+		mysqli_query($konek,"update tamulain set nama='$nama', alamat='$alamat', jumlah='$jumlah', keterangan='$keterangan'  where id_tamu='$id_tamu'");
+
+		// mengalihkan halaman kembali ke index.php
+		header("location:tamu.php");
+
+	}  // akhir proses edit data
+
+	if($_GET['act']=='inserttamulain'){
+		// menangkap data yang di kirim dari form
+		$nama = $_POST['nama'];
+		$alamat = $_POST['alamat'];
+		$jumlah = $_POST['jumlah'];
+		$keterangan = $_POST['keterangan'];
+
+		$cektamu=mysqli_num_rows(mysqli_query($konek, "SELECT * FROM tamulain WHERE nama='$_POST[nama]'"));
+
+		if($cektamu > 0) {
+		        echo '<script language="javascript">
+		              alert ("Nama sudah ada");
+		              window.location="tamu.php?view=tambahtamulain";
+		              </script>';
+		              exit();
+		}else{
+		// simpan data ke database
+		$simpan = mysqli_query($konek, "INSERT INTO tamulain(nama,alamat,jumlah,keterangan) 
+							VALUES ('$nama','$alamat','$jumlah','$keterangan')");
+
+		// mengalihkan halaman kembali ke index.php
+		echo '<script language="javascript">
+		              alert ("data sudah tersimpan");
+		              window.location="tamu.php";
+		              </script>';
+		              exit();
+		}
+
+	}else{
 		header('location:tamu.php');
 	}
 

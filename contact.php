@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Weeding</title>
+    <title>Wedding Nahnu & Fia</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,7 +67,6 @@
                                         <?php
                                             include "koneksi.php";
                                             ob_start();
-                                            session_start();
                                             if(isset($_SESSION['login'])){
                                         ?>
                                         <li><a href="logout.php" id="logout">logout</a></li>
